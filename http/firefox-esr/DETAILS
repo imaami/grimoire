@@ -1,0 +1,23 @@
+           SPELL=firefox
+         VERSION=78.0.2
+  SECURITY_PATCH=146
+          SOURCE="${SPELL}-${VERSION}.source.tar.xz"
+   SOURCE_URL[0]="http://releases.mozilla.org/pub/${SPELL}/releases/${VERSION}/source/${SOURCE}"
+         SOURCE2="${SOURCE}.asc"
+  SOURCE2_URL[0]="${SOURCE_URL[0]}.asc"
+      SOURCE_GPG="mozilla.gpg:${SOURCE2}:UPSTREAM_KEY"
+  SOURCE2_IGNORE="signature"
+SOURCE_DIRECTORY="${BUILD_DIRECTORY}/${SPELL}-${VERSION}"
+        WEB_SITE=https://www.mozilla.org/en-US/firefox/fx/
+     GATHER_DOCS=off
+           TMPFS=off
+         ENTERED=20030813
+      LICENSE[0]=MOZILLA
+        KEYWORDS="mozilla http"
+           SHORT="redesign of the Mozilla browser"
+cat << EOF
+Mozilla firefox, formerly known as Mozilla Firebird, formerly known as Phoenix,
+is a redesign of the Mozilla browser component, similar to Galeon, K-Meleon and
+Camino?, but written using the XUL user interface language and designed to be
+cross-platform.
+EOF

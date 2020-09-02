@@ -1,0 +1,52 @@
+default_pre_build  &&
+cd  $SOURCE_DIRECTORY &&
+
+apply_patch_dir patches &&
+
+# To remove version suffix from some directories
+sed 's;-$(MOZ_APP_VERSION);;g' -i config/baseconfig.mk &&
+
+cp -v $SPELL_DIRECTORY/mozconfig .mozconfig &&
+
+# Be explicit: stripped install is the default.
+if [[ "$FIREFOX_STRIP" == "y" ]]; then
+  echo 'ac_add_options --enable-install-strip'
+  echo 'ac_add_options --enable-strip'
+  echo 'ac_add_options --disable-debug-symbols'
+else
+  echo 'ac_add_options --disable-install-strip'
+  echo 'ac_add_options --disable-strip'
+  echo 'ac_add_options --enable-debug-symbols'
+fi >> .mozconfig &&
+
+if [[ "$FIREFOX_SDK" == "n" ]]; then
+  sed -i 's/^\(INSTALL_SDK = .*\)$/#\1/' browser/installer/Makefile.in
+fi &&
+
+if [[ $FIREFOX_OFFICIAL == y ]]; then
+  echo 'ac_add_options --enable-official-branding' >> .mozconfig
+fi &&
+
+if [[ $FIREFOX_PGO == y ]]; then
+  echo 'mk_add_options PROFILE_GEN_SCRIPT='\''$(PYTHON) $(OBJDIR)/_profile/pgo/profileserver.py'\'
+else
+  echo "ac_add_options --disable-profiling --disable-tests"
+fi >> .mozconfig &&
+
+if [[ $FIREFOX_WIDEVINE == y ]]; then
+  echo "ac_add_options --enable-eme=widevine" >> .mozconfig
+else
+  echo "ac_add_options --disable-eme" >> .mozconfig
+fi &&
+
+case "$HOST" in
+*-musl)
+  cat <<-!>>.mozconfig
+	ac_add_options --disable-elf-hack
+	# jemalloc depends on PTHREAD_MUTEX_ADAPTIVE_NP
+	ac_add_options --disable-jemalloc
+	# gold causes build failures
+	ac_add_options --disable-gold
+!
+  ;;
+esac
