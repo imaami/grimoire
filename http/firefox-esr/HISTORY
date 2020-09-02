@@ -1,8 +1,144 @@
-2020-04-07 Thomas Orgis <sobukus@sourcemage.org>
-	* Branch off whole spell from http/firefox version 68.0.1 
-	  (commit 891c1133185904d88b6b4bb624704fdfaac70c8e).
-	* DETAILS: version 68.7.0, SECURITY_PATCH++ (not counting
-	  individual CVEs …)
+2020-07-26 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* mozconfig: remove -fpermissive flag, no longer necessary
+
+2020-07-19 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* BUILD, DEPENDS, DETAILS, PRE_BUILD, mozconfig: version 78.0.2
+
+2020-05-09 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 76.0.1
+	* DEPENDS: remove unexpected &&
+
+2020-05-05 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 76.0, SECURITY_PATCH++, fixes
+	  CVE-2020-12387,
+	  CVE-2020-12388,
+	  CVE-2020-6831,
+	  CVE-2020-12390,
+	  CVE-2020-12391,
+	  CVE-2020-12392,
+	  CVE-2020-12393,
+	  CVE-2020-12394,
+	  CVE-2020-12395,
+	  CVE-2020-12396,
+	* patches/7002_system_av1_support.patch, DEPENDS: remove non-applying
+	  patch, use av1 lib provided by firefox
+
+2020-04-07 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 75.0, SECURITY_PATCH++, fixes CVE-2020-6821,
+	  CVE-2020-6822, CVE-2020-6823, CVE-2020-6824, CVE-2020-6825,
+	  CVE-2020-6826
+	* patches/2009_musl_audioipc-fixup.patch,
+          patches/6001_add_missing_header_for_basename.patch,
+          patches/6005_musl_pthread_setname.patch: remove non-applying patches
+	* DEPENDS: disable dependency on sqlite
+
+2020-04-04 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 74.0.1, SECURITY_PATCH++, fixes CVE-2020-6819,
+	  CVE-2020-6820
+
+2020-03-24 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 74.0
+	* 3000_use_the_Mozilla_location_service_when_no_Google_key_is_available.patch,
+          6002_add_alternate_name_for_private_siginfo_struct_member.patch,
+          6007_musl_fix_toolkit.patch: remove non-applying patches
+
+2020-02-20 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 73.0.1
+
+2020-02-12 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 73.0, SECURITY_PATCH++, fixes
+	  CVE-2020-6796,
+	  CVE-2020-6797,
+	  CVE-2020-6799,
+	  CVE-2020-6800,
+	  CVE-2020-6801
+	* firefox-72.0.2-sqlite-3.31.patch, 2008_custom_vendor_lexicon.patch,
+	  2000_system_harfbuzz_support.patch: removed
+	* DEPENDS: do not use system harfbuzz, depend on nss 3.49
+
+2020-01-25 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS, patches/firefox-72.0.2-sqlite-3.31.patch: fix crash with
+	  sqlite 3.31, patch from mandriva
+
+2020-01-20 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 72.0.2
+
+2020-01-09 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* patches/6008_musl_sandbox_membarrier.patch,
+	  patches/2001_system_graphite2_support.patch: remove non-applying
+	  patch
+	* DEPENDS: remove dependency on graphite2
+	* DEPENDS: depend on nss 3.48
+
+2020-01-08 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DETAILS: version 72.0.1, SECURITY_PATCH++,
+	  CVE-2019-17015..CVE-2019-17026
+
+2020-01-05 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* INSTALL, BUILD: disable stack-clash protection
+
+2019-12-02 Pavel Vinogradov <public@sourcemage.org>
+	* DETAILS: version 71.0, SECURITY_PATCH++,
+	  (CVE-2019-11756, CVE-2019-17008, CVE-2019-13722, CVE-2019-11745,
+	   CVE-2019-17014, CVE-2019-17009. CVE-2019-17010, CVE-2019-17005,
+	   CVE-2019-17011, CVE-2019-17012, CVE-2019-17013)
+	* DEPENDS: needs nss branch >= 3.47
+	* patches/*: updated
+
+2019-10-31 Pavel Vinogradov <public@sourcemage.org>
+	* DETAILS: version 70.0.1
+
+2019-10-22 Pavel Vinogradov <public@sourcemage.org>
+	* DETAILS: version 70.0, SECURITY_PATCH++,
+	  (CVE-2018-6156, CVE-2019-15903, CVE-2019-11757, CVE-2019-11759,
+	   CVE-2019-11760, CVE-2019-11761, CVE-2019-11762, CVE-2019-11763,
+	   CVE-2019-11765, CVE-2019-17000, CVE-2019-17001, CVE-2019-17002,
+	   CVE-2019-11764)
+	* DEPENDS: needs nss branch >= 3.46
+	* patches/*: updated
+
+2019-10-10 Pavel Vinogradov <public@sourcemage.org>
+	* DETAILS: version 69.0.3
+
+2019-10-03 Pavel Vinogradov <public@sourcemage.org>
+	* DETAILS: version 69.0.2
+
+2019-09-23 Ismael Luceno <ismael@sourcemage.org>
+	* DEPENDS, patches/7002_system_av1_support.patch: Added patch to use
+	  system dav1d
+	* patches/2003_blessings_TERM.patch,
+	  patches/2004_fix_sandbox_lto.patch,
+	  patches/2012_allow-non-ascii-chars.patch,
+	  patches/2013_fix-audio-thread-priority.patch,
+	  patches/3000_use_the_Mozilla_location_service_when_no_Google_key_is_available.patch,
+	  patches/6001_add_missing_header_for_basename.patch,
+	  patches/6002_add_alternate_name_for_private_siginfo_struct_member.patch,
+	  patches/6003_fix_syscall_wrappers_on_musl.patch,
+	  patches/6004_musl_memory_report.patch,
+	  patches/6005_musl_pthread_setname.patch,
+	  patches/6006_musl_fix_tools.patch,
+	  patches/6007_musl_fix_toolkit.patch,
+	  patches/6008_musl_sandbox_membarrier.patch,
+	  patches/7000_sys_auxv_non_glibc.patch,
+	  patches/7001_make-pgo-use-toolchain.patch: Imported build fixes and
+	  other patches from Gentoo
+
+2019-09-18 Pavel Vinogradov <public@sourcemage.org>
+	* DETAILS: version 69.0.1, SECURITY_PATCH++, (CVE-2019-11754)
+
+2019-09-05 Florian Franzmann <siflfran@hawo.stw.uni-erlangen.de>
+	* DEPENDS: do not use system libvpx, which causes a build failure
+	  bundled libvpx version was 1.7.0, system version 1.8.1, firefox version 69.0
+
+2019-09-04 Pavel Vinogradov <public@sourcemage.org>
+	* DETAILS: version 69.0, SECURITY_PATCH++,
+	  (CVE-2019-11751, CVE-2019-11746, CVE-2019-11744. CVE-2019-11742,
+	   CVE-2019-11736, CVE-2019-11753, CVE-2019-11752, CVE-2019-9812,
+	   CVE-2019-11741, CVE-2019-11743, CVE-2019-11748, CVE-2019-11749,
+	   CVE-2019-5849, CVE-2019-11750, CVE-2019-11737, CVE-2019-11738,
+	   CVE-2019-11747, CVE-2019-11734, CVE-2019-11735, CVE-2019-11740)
+	* DEPENDS: needs nss branch >= 3.45
+	* patches/200*: updated
 
 2019-08-26 Ismael Luceno <ismael@sourcemage.org>
 	* BUILD: Simpilfied cleanup of CFLAGS/CXXFLAGS

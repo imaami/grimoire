@@ -1,11 +1,13 @@
-           SPELL=firefox-esr
-          SPELLX=firefox
-         VERSION=68.7.0esr
-  SECURITY_PATCH=134
-          SOURCE="${SPELLX}-${VERSION}.source.tar.xz"
-   SOURCE_URL[0]="http://releases.mozilla.org/pub/${SPELLX}/releases/${VERSION}/source/${SOURCE}"
-     SOURCE_HASH="sha512:a3ddcf8ffe5f568b30b1fc9ddcaa5cebe600bf11ce353c09507d5466f999022d45a0dee9a08f53f37b10202a2e2ce4c180743cd6a2ca38dfea1c3e4487b18593"
-SOURCE_DIRECTORY="${BUILD_DIRECTORY}/${SPELLX}-${VERSION%esr}"
+           SPELL=firefox
+         VERSION=78.0.2
+  SECURITY_PATCH=146
+          SOURCE="${SPELL}-${VERSION}.source.tar.xz"
+   SOURCE_URL[0]="http://releases.mozilla.org/pub/${SPELL}/releases/${VERSION}/source/${SOURCE}"
+         SOURCE2="${SOURCE}.asc"
+  SOURCE2_URL[0]="${SOURCE_URL[0]}.asc"
+      SOURCE_GPG="mozilla.gpg:${SOURCE2}:UPSTREAM_KEY"
+  SOURCE2_IGNORE="signature"
+SOURCE_DIRECTORY="${BUILD_DIRECTORY}/${SPELL}-${VERSION}"
         WEB_SITE=https://www.mozilla.org/en-US/firefox/fx/
      GATHER_DOCS=off
            TMPFS=off
@@ -18,7 +20,4 @@ Mozilla firefox, formerly known as Mozilla Firebird, formerly known as Phoenix,
 is a redesign of the Mozilla browser component, similar to Galeon, K-Meleon and
 Camino?, but written using the XUL user interface language and designed to be
 cross-platform.
-
-This is the Extended Support Release for people preferring stability over
-newest features.
 EOF

@@ -1,3 +1,5 @@
+disable_stack_clash_protection &&
+
 FIREFOX_HOME="$INSTALL_ROOT/usr/lib/firefox" &&
 
 if  spell_ok  Firebird;  then
@@ -9,7 +11,7 @@ fi  &&
 #
 # Script to set MOZILLA_FIVE_HOME
 #
-cp -v $SPELL_DIRECTORY/firefox.sh  $INSTALL_ROOT/etc/profile.d &&
+cp -v $SPELL_DIRECTORY/$SPELL.sh  $INSTALL_ROOT/etc/profile.d &&
 
 #
 # Create symlink to mozilla for hardwired applications
